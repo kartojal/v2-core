@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity >=0.8.19;
+pragma solidity >=0.8.20;
 
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
@@ -20,7 +20,7 @@ contract FaultyFlashLoanReceiver is IERC3156FlashBorrower {
     {
         initiator;
         data;
-        IERC20(asset).approve({ spender: msg.sender, amount: amount + fee });
+        IERC20(asset).approve({ spender: msg.sender, value: amount + fee });
         response = FAULTY_RESPONSE;
     }
 }

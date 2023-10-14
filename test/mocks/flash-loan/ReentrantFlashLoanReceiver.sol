@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity >=0.8.19;
+pragma solidity >=0.8.20;
 
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
@@ -20,7 +20,7 @@ contract ReentrantFlashLoanReceiver is Constants, IERC3156FlashBorrower {
         returns (bytes32 response)
     {
         initiator;
-        IERC20(asset).approve({ spender: msg.sender, amount: amount + fee });
+        IERC20(asset).approve({ spender: msg.sender, value: amount + fee });
         IERC3156FlashLender(msg.sender).flashLoan({ receiver: this, asset: asset, amount: amount, data: data });
         response = FLASH_LOAN_CALLBACK_SUCCESS;
     }

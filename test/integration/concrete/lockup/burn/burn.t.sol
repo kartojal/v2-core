@@ -1,5 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.19 <0.9.0;
+pragma solidity >=0.8.20 <0.9.0;
+
+import { IERC721Errors } from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
+
+import { IERC721Errors } from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 
 import { ISablierV2Lockup } from "src/interfaces/ISablierV2Lockup.sol";
 import { Errors } from "src/libraries/Errors.sol";
@@ -120,7 +124,7 @@ abstract contract Burn_Integration_Concrete_Test is Integration_Test, Lockup_Int
         lockup.burn(streamId);
 
         // Run the test.
-        vm.expectRevert("ERC721: invalid token ID");
+        vm.expectRevert(abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, streamId));
         lockup.burn(streamId);
     }
 
@@ -140,7 +144,7 @@ abstract contract Burn_Integration_Concrete_Test is Integration_Test, Lockup_Int
         vm.expectEmit({ emitter: address(lockup) });
         emit MetadataUpdate({ _tokenId: notTransferableStreamId });
         lockup.burn(notTransferableStreamId);
-        vm.expectRevert("ERC721: invalid token ID");
+        vm.expectRevert(abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, notTransferableStreamId));
         lockup.getRecipient(notTransferableStreamId);
     }
 
@@ -171,7 +175,7 @@ abstract contract Burn_Integration_Concrete_Test is Integration_Test, Lockup_Int
         lockup.burn(streamId);
 
         // Assert that the NFT has been burned.
-        vm.expectRevert("ERC721: invalid token ID");
+        vm.expectRevert(abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, streamId));
         lockup.getRecipient(streamId);
     }
 
@@ -188,7 +192,7 @@ abstract contract Burn_Integration_Concrete_Test is Integration_Test, Lockup_Int
         vm.expectEmit({ emitter: address(lockup) });
         emit MetadataUpdate({ _tokenId: streamId });
         lockup.burn(streamId);
-        vm.expectRevert("ERC721: invalid token ID");
+        vm.expectRevert(abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, streamId));
         lockup.getRecipient(streamId);
     }
 }

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.19 <0.9.0;
+pragma solidity >=0.8.20 <0.9.0;
 
 import { MAX_UD60x18, UD60x18, ud } from "@prb/math/src/UD60x18.sol";
 
@@ -166,7 +166,7 @@ contract CreateWithRange_LockupLinear_Integration_Fuzz_Test is
         deal({ token: address(dai), to: funder, give: params.totalAmount });
 
         // Approve {SablierV2LockupLinear} to transfer the assets from the fuzzed funder.
-        dai.approve({ spender: address(lockupLinear), amount: MAX_UINT256 });
+        dai.approve({ spender: address(lockupLinear), value: MAX_UINT256 });
 
         // Expect the assets to be transferred from the funder to {SablierV2LockupLinear}.
         expectCallToTransferFrom({

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity >=0.8.19 <0.9.0;
+pragma solidity >=0.8.20 <0.9.0;
 
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
@@ -51,8 +51,8 @@ contract Init is BaseScript {
         IERC20Mint(address(asset)).mint({ beneficiary: sender, amount: 131_601.1e18 + 10_000e18 });
 
         // Approve the Sablier contracts to transfer the ERC-20 assets from the sender.
-        asset.approve({ spender: address(lockupLinear), amount: type(uint256).max });
-        asset.approve({ spender: address(lockupDynamic), amount: type(uint256).max });
+        asset.approve({ spender: address(lockupLinear), value: type(uint256).max });
+        asset.approve({ spender: address(lockupDynamic), value: type(uint256).max });
 
         // Create 7 Lockup Linear streams with various amounts and durations.
         //

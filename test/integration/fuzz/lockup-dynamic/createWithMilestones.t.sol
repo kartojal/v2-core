@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.19 <0.9.0;
+pragma solidity >=0.8.20 <0.9.0;
 
 import { MAX_UD60x18, UD60x18, ud, ZERO } from "@prb/math/src/UD60x18.sol";
 import { stdError } from "forge-std/StdError.sol";
@@ -252,7 +252,7 @@ contract CreateWithMilestones_LockupDynamic_Integration_Fuzz_Test is
         deal({ token: address(dai), to: funder, give: vars.totalAmount });
 
         // Approve {SablierV2LockupDynamic} to transfer the assets from the fuzzed funder.
-        dai.approve({ spender: address(lockupDynamic), amount: MAX_UINT256 });
+        dai.approve({ spender: address(lockupDynamic), value: MAX_UINT256 });
 
         // Expect the assets to be transferred from the funder to {SablierV2LockupDynamic}.
         expectCallToTransferFrom({
