@@ -2,7 +2,7 @@
 pragma solidity >=0.8.19 <0.9.0;
 
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import { UD60x18, UNIT } from "@prb/math/src/UD60x18.sol";
+import { UD60x18 } from "@prb/math/src/UD60x18.sol";
 
 import { ISablierV2Comptroller } from "src/interfaces/ISablierV2Comptroller.sol";
 
@@ -36,18 +36,6 @@ contract ComptrollerHandler is BaseHandler {
                                SABLIER-V2-COMPTROLLER
     //////////////////////////////////////////////////////////////////////////*/
 
-    function setFlashFee(
-        uint256 timeJumpSeed,
-        UD60x18 newFlashFee
-    )
-        external
-        instrument("setFlashFee")
-        adjustTimestamp(timeJumpSeed)
-    {
-        newFlashFee = _bound(newFlashFee, 0, UNIT);
-        comptroller.setFlashFee(newFlashFee);
-    }
-
     function setProtocolFee(
         uint256 timeJumpSeed,
         UD60x18 newProtocolFee
@@ -58,13 +46,5 @@ contract ComptrollerHandler is BaseHandler {
     {
         newProtocolFee = _bound(newProtocolFee, 0, MAX_FEE);
         comptroller.setProtocolFee(asset, newProtocolFee);
-    }
-
-    function toggleFlashAsset(uint256 timeJumpSeed)
-        external
-        instrument("toggleFlashAsset")
-        adjustTimestamp(timeJumpSeed)
-    {
-        comptroller.toggleFlashAsset(asset);
     }
 }
