@@ -81,8 +81,8 @@
 [etherscan]
   arbitrum = { key = "${API_KEY_ARBISCAN}" }
   avalanche = { key = "${API_KEY_SNOWTRACE" }
-  bnb_smart_chain = { key = "${API_KEY_BSCSCAN}" }
-  gnosis_chain = { key = "${API_KEY_GNOSISSCAN}" }
+  bnb_smart_chain = { url = "https://api.bscscan.com/api", key = "${API_KEY_BSCSCAN}" }
+  gnosis_chain = { url = "https://api.gnosisscan.com/api", key = "${API_KEY_GNOSISSCAN}" }
   mainnet = { key = "${API_KEY_ETHERSCAN}" }
   optimism = { key = "${API_KEY_OPTIMISTIC_ETHERSCAN}" }
   polygon = { key = "${API_KEY_POLYGONSCAN}" }
