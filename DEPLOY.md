@@ -35,21 +35,7 @@ catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x47355176
 
 ## Simulated deployment
 
-Simulate a Solidity script with `catapulta scrip## Multi-chain deployment
-
-Deploy any Sablier script with `catapulta script [path] --networks [a,b,c]`
-
-````
-catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji
-```
-## Multi-chain deployment
-
-Deploy any Sablier script with `catapulta script [path] --networks [a,b,c]`
-
-````
-
-catapulta script script/DeployComptroller.s.sol --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce
---network sepolia,maticMumbai,avalancheFuji ``` t [path] --networks [a,b,c] --simulate`
+Simulate a Solidity script with `catapulta script [path] --networks [a,b,c] --simulate`
 
 ```
 catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji --simulate
@@ -61,5 +47,5 @@ You can add the `-vvvv` forge verbose flag and Catapulta will show all the debug
 remove concurrency during multi-chain deployments, making it slower.
 
 ```
-catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji --simulate -vvvv
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai --simulate -vvvv
 ```
