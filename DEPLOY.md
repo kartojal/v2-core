@@ -43,8 +43,9 @@ catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x47355176
 
 ## Verbose deployment or simulation
 
-You can add the `-vvvv` forge verbose flag and Catapulta will show all the debug logs and deployment traces. This will
-remove concurrency during multi-chain deployments, making it slower.
+You can add the `-vvvv` forge verbose flag and Catapulta will show all the debug logs and deployment traces.
+
+> This will remove concurrency during multi-chain deployments, making it slower.
 
 ```
 catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai --simulate -vvvv
