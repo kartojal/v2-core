@@ -16,13 +16,13 @@ npm i -g catapulta@0.2.19
 4. Deploy any Sablier script with `catapulta script [path] --network [network_name]`
 
 ```
-catapulta script script/deployNFTDescriptor.s.sol --network sepolia
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Cel --network sepolia
 ```
 
 You can load Sablier `optimized` foundry config profile as always via FOUNDRY_PROFILE env var
 
 ```
-FOUNDRY_PROFILE=optimized catapulta script script/deployNFTDescriptor.s.sol --network sepolia
+FOUNDRY_PROFILE=optimized catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia
 ```
 
 ## Multi-chain deployment
@@ -30,7 +30,7 @@ FOUNDRY_PROFILE=optimized catapulta script script/deployNFTDescriptor.s.sol --ne
 Deploy any Sablier script with `catapulta script [path] --networks [a,b,c]`
 
 ```
-catapulta script script/DeployNFTDescriptor.s.sol --network sepolia,maticMumbai,avalancheFuji
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji
 ```
 
 ## Simulated deployment
@@ -40,18 +40,19 @@ Simulate a Solidity script with `catapulta scrip## Multi-chain deployment
 Deploy any Sablier script with `catapulta script [path] --networks [a,b,c]`
 
 ````
-catapulta script script/DeployNFTDescriptor.s.sol --network sepolia,maticMumbai,avalancheFuji
-```## Multi-chain deployment
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji
+```
+## Multi-chain deployment
 
 Deploy any Sablier script with `catapulta script [path] --networks [a,b,c]`
 
 ````
 
-catapulta script script/DeployNFTDescriptor.s.sol --network sepolia,maticMumbai,avalancheFuji
-``` t [path] --networks [a,b,c] --simulate`
+catapulta script script/DeployComptroller.s.sol --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce
+--network sepolia,maticMumbai,avalancheFuji ``` t [path] --networks [a,b,c] --simulate`
 
 ```
-catapulta script script/DeployNFTDescriptor.s.sol --network sepolia,maticMumbai,avalancheFuji --simulate
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji --simulate
 ```
 
 ## Verbose deployment or simulation
@@ -60,5 +61,5 @@ You can add the `-vvvv` forge verbose flag and Catapulta will show all the debug
 remove concurrency during multi-chain deployments, making it slower.
 
 ```
-catapulta script script/DeployNFTDescriptor.s.sol --network sepolia,maticMumbai,avalancheFuji --simulate -vvvv
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia,maticMumbai,avalancheFuji --simulate -vvvv
 ```
