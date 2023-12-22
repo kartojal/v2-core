@@ -7,13 +7,13 @@
 
 2. Fill `CATAPULTA_API_KEY` and `MNEMONIC` in Sablier .env file
 
-Install latest version of catapulta with your node package manager
+3. Install latest version of catapulta with your node package manager
 
 ```
 npm i -g catapulta@0.2.19
 ```
 
-3. Deploy any Sablier script with `catapulta script [path] --network [network_name]`
+4. Deploy any Sablier script with `catapulta script [path] --network [network_name]`
 
 ```
 catapulta script script/deployNFTDescriptor.s.sol --network sepolia
