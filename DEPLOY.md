@@ -16,7 +16,7 @@ npm i -g catapulta@0.2.19
 4. Deploy any Sablier script with `catapulta script [path] --network [network_name]`
 
 ```
-catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Cel --network sepolia
+catapulta script script/DeployComptroller.s.sol  --sig "run(address)" 0x4735517616373c5137dE8bcCDc887637B8ac85Ce --network sepolia
 ```
 
 You can load Sablier `optimized` foundry config profile as always via FOUNDRY_PROFILE env var
